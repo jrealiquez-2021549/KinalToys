@@ -1,0 +1,104 @@
+/*Estilos 'globales/generales' de la pagina*/
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+}
+
+body {
+    background-image: linear-gradient(rgba(0, 1, 0.20, 0.1), rgba(0, 0, 0, 0.5)), url(../Image/Contacto.jpg);
+    background-size: cover;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+/*Ventana/contenedor modal*/
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;    /*Para que se ordene de forma lineal*/
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-container {/*contenedor de todo*/
+    padding: 32px;
+    position: relative;
+    width: 90%;
+    max-width: 600px;
+    background-color:rgb(28, 60, 55);
+    text-align: center;
+    border-radius: 10px;
+}
+
+.modal-container .title{
+    font-size: 32px;
+    margin-bottom: 16px;
+    font-weight: 700;
+}
+
+.modal-container .paragraph{
+    margin-bottom: 16px;
+    line-height: 1.5;
+}
+
+.modal-container .info-contacto{
+    text-align: left;
+    margin-top: 16px;
+}
+
+/*para el formulario*/
+.modal-container form{
+    margin-top: 24px;
+    text-align: left;
+}
+
+.modal-container .campo, .modal-container textarea{
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 1px solid white;
+    border-radius: 4px;
+    resize: none;
+    margin-top: 8px;/*espacio entre los espacios de texto*/
+}
+
+.modal-container .btn-enviar{
+    background-color:rgb(19, 50, 208);
+    margin-bottom: 24px;/*espacio hacia abajo del boton*/
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    border-radius: 24px;
+    cursor: pointer;
+    font-weight: bold;
+    width: 100%;
+    font-size: 16px;
+    margin-top:24PX;/*Espacio separado de arriba*/
+}
+
+.modal-container .btn-enviar:hover{
+    background-color: rgb(51, 75, 198);
+}
+
+/*Para el boton de cerrar*/
+.modal-container .close{
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 32px;
+    text-decoration: none;
+    color:brown;
+    font-weight: bold;
+}
+.modal-container a{
+    transform: opacity 0.5s ease;
+}
