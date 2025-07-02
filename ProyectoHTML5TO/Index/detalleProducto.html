@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalles del Producto - Tienda de Teléfonos</title>
+    <link rel="stylesheet" href="../Styles/css.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Detalles del Producto</h1>
+            <nav>
+                <a href="principal.html">Inicio</a>
+                <a href="productos.html">Productos</a>
+                <a href="contacto.html">Contacto</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="detalleProducto container">
+            <h2 id="productTitle">Cargando Detalles del Producto...</h2>
+            <div class="product-info">
+                <img id="productImage" src="" alt="Imagen del Producto" class="product-image">
+                <div class="product-description">
+                    <p id="productDescription">Aquí se mostrarán los detalles específicos del teléfono.</p>
+                    <span class="price" id="productPrice">$---</span>
+                    <button class="btn-primary">Añadir al Carrito (No funcional)</button>
+                    <a href="productos.html" class="btn-secondary">Volver al Catálogo</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Tienda de Teléfonos. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="../Scripts/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const productId = urlParams.get('id');
+
+            const productTitle = document.getElementById('productTitle');
+            const productImage = document.getElementById('productImage');
+            const productDescription = document.getElementById('productDescription');
+            const productPrice = document.getElementById('productPrice');
+
+            // Simulación de datos de productos (en un proyecto real, esto vendría de una base de datos)
+            const products = {
+                'SamsungS24': {
+                    title: 'Samsung Galaxy S24',
+                    image: '../Images/samsung2.jpg',
+                    description: 'El Samsung Galaxy S24 ofrece un rendimiento excepcional con su nuevo procesador, una cámara impresionante y un diseño elegante. Disfruta de una pantalla Dynamic AMOLED 2X, batería de larga duración y funciones avanzadas de IA.',
+                    price: '$799'
+                },
+                'iPhone15Pro': {
+                    title: 'iPhone 15 Pro',
+                    image: '../Images/IphonePro.jpg', // Usando la imagen que ya tienes
+                    description: 'El iPhone 15 Pro  redefine la experiencia móvil con su chip A17 Bionic, sistema de cámara Pro avanzado con teleobjetivo de 5x y una robusta carcasa de titanio. Su pantalla Super Retina XDR es simplemente espectacular.',
+                    price: '$1199'
+                },
+                'iPhone15': {
+                    title: 'iPhone 15',
+                    image: '../Images/Iphonequince.jpg',
+                    description: 'El nuevo iPhone 15 integra el potente chip A16 Bionic, una cámara principal de 48 MP con teleobjetivo 2x, y el innovador Dynamic Island. Todo en un diseño duradero con Ceramic Shield y pantalla Super Retina XDR.',
+                    price: '$999'
+                },
+                'GooglePixel8Pro': {
+                    title: 'Google Pixel 8 Pro',
+                    image: '../Images/GooglePixel.jpg',
+                    description: 'El Google Pixel 8 Pro es la cumbre de la inteligencia artificial en un smartphone. Con el chip Google Tensor G3, una cámara profesional con funciones avanzadas de edición de fotos y video, y una batería que dura todo el día.',
+                    price: '$899'
+                },
+                'Xiaomi14Ultra': {
+                    title: 'Xiaomi 14 Ultra',
+                    image: '../Images/xiaomiUltra.jpg',
+                    description: 'El Xiaomi 14 Ultra es un gigante de la fotografía móvil, con ópticas Leica y un sistema de cámaras cuádruple de 50MP. Combina un rendimiento extremo con su procesador de última generación y una carga ultrarrápida.',
+                    price: '$749'
+                },
+                'OnePlus12': {
+                    title: 'OnePlus 12',
+                    image: '../Images/OnePlus.jpg',
+                    description: 'El OnePlus 12 ofrece una experiencia fluida y potente con su hardware de vanguardia, pantalla ProXDR deslumbrante y sistema de cámara Hasselblad de cuarta generación. Rendimiento sin concesiones para gaming y multitarea.',
+                    price: '$699'
+                },
+                'GalaxyZFold5': {
+                    title: 'Samsung Galaxy Z Fold5',
+                    image: '../Images/ZFold.jpg',
+                    description: 'El Galaxy Z Fold5 es un dispositivo plegable que combina la productividad de una tablet con la portabilidad de un smartphone. Con una pantalla inmersiva y un diseño más delgado y resistente, ideal para el trabajo y el entretenimiento.',
+                    price: '$1799'
+                },
+                'GalaxyZFlip5': {
+                    title: 'Samsung Galaxy Z Flip5',
+                    image: '../Images/ZFlip.jpg',
+                    description: 'El Galaxy Z Flip5 redefine la expresión personal con su diseño compacto y una pantalla Flex Window más grande. Captura fotos y videos desde nuevos ángulos y personaliza tu experiencia plegable.',
+                    price: '$999'
+                }
+            };
+
+            // Mostrar la información del producto si se encuentra el ID
+            if (productId && products[productId]) {
+                const product = products[productId];
+                productTitle.textContent = product.title;
+                productImage.src = product.image;
+                productImage.alt = product.title;
+                productDescription.textContent = product.description;
+                productPrice.textContent = product.price;
+            } else {
+                productTitle.textContent = 'Producto No Encontrado';
+                productImage.style.display = 'none'; // Ocultar imagen si no hay producto
+                productDescription.textContent = 'Lo sentimos, no pudimos encontrar los detalles para este producto.';
+                productPrice.textContent = '';
+            }
+        });
+    </script>
+</body>
+</html>

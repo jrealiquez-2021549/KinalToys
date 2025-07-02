@@ -1,0 +1,519 @@
+/* Base y Tipografía */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f8f8; /* Un gris muy claro */
+    color: #333; /* Color de texto general */
+    line-height: 1.6;
+    transition: all 0.3s ease;
+}
+
+.container {
+    max-width: 1200px; /* Ancho máximo para el contenido */
+    margin: 0 auto; /* Centrar el contenedor */
+    padding: 0 20px; /* Espaciado lateral */
+}
+
+h1, h2, h3, h4 {
+    color: #2c3e50; /* Un azul oscuro para los títulos */
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+/* Encabezado */
+header {
+    background-color: #2c3e50; /* Azul oscuro elegante */
+    color: white;
+    padding: 15px 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    position: sticky; /* Fija el header en la parte superior */
+    top: 0;
+    z-index: 1000; /* Asegura que esté por encima de otros elementos */
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1 {
+    margin: 0;
+    color: white;
+    font-size: 1.8em;
+}
+
+nav a {
+    color: white;
+    margin: 0 15px;
+    text-decoration: none;
+    font-weight: 600; /* Un poco más de grosor */
+    transition: color 0.3s ease;
+    padding: 5px 0;
+}
+
+nav a:hover {
+    color: #1abc9c; /* Un verde azulado brillante al pasar el ratón */
+}
+
+/* Botones */
+.btn-primary, .btn-secondary {
+    display: inline-block;
+    padding: 12px 25px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    text-align: center;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-top: 15px;
+}
+
+.btn-primary {
+    background-color: #1abc9c; /* Verde azulado */
+    color: white;
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #16a085; /* Un tono más oscuro de verde */
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background-color: #3498db; /* Azul */
+    color: white;
+    border: 1px solid #3498db;
+}
+
+.btn-secondary:hover {
+    background-color: #2980b9; /* Un tono más oscuro de azul */
+    transform: translateY(-2px);
+}
+
+/* Secciones generales */
+section {
+    padding: 60px 0; /* Espaciado vertical para secciones */
+}
+
+section h2 {
+    font-size: 2.5em;
+    margin-bottom: 15px;
+}
+
+section p {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 40px auto;
+    font-size: 1.1em;
+    color: #666;
+}
+
+/* Hero Section (Nueva) */
+.hero-section {
+    position: relative;
+    width: 100%;
+    height: 60vh; /* Altura de la vista */
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    background-color: #333; /* Fondo por si la imagen tarda en cargar */
+}
+
+.hero-section img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Cubre el área sin distorsionar la imagen */
+    filter: brightness(0.6); /* Oscurece la imagen para que el texto resalte */
+    z-index: 1;
+}
+
+.hero-text {
+    position: relative;
+    z-index: 2;
+    padding: 20px;
+    max-width: 800px;
+    background-color: rgba(0, 0, 0, 0.3); /* Fondo semitransparente para el texto */
+    border-radius: 10px;
+}
+
+.hero-text h2 {
+    color: white;
+    font-size: 3.5em;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.hero-text p {
+    color: white;
+    font-size: 1.5em;
+    margin-bottom: 30px;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+}
+
+/* Carrusel (para la sección Hero) */
+.carousel-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.carousel-slide {
+    display: none; /* Oculta todos los slides por defecto */
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    animation-duration: 1.5s; /* Duración de la animación */
+}
+
+.fade {
+    animation-name: fadeEffect;
+}
+
+@keyframes fadeEffect {
+    from {opacity: 0.4}
+    to {opacity: 1}
+}
+
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -22px;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 3; /* Asegura que estén por encima de la imagen */
+}
+
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+.prev:hover, .next:hover {
+    background-color: rgba(0,0,0,0.8);
+}
+
+/* Galería de Productos (Mejorada) */
+.galeria {
+    display: grid; /* Usar CSS Grid para un diseño más flexible */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Columnas responsivas */
+    gap: 30px; /* Espacio entre las tarjetas */
+    margin-top: 40px;
+    justify-content: center; /* Centrar elementos si no llenan la fila */
+}
+
+.producto-card {
+    background-color: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.1); /* Sombra más pronunciada */
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden; /* Para contener la imagen */
+}
+
+.producto-card:hover {
+    transform: translateY(-8px); /* Efecto de "levantar" */
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+.producto-card img {
+    width: 100%; /* Ajusta la imagen al ancho de la tarjeta */
+    height: 250px; /* Altura fija para todas las imágenes */
+    object-fit: contain; /* Asegura que la imagen se ajuste sin cortarse */
+    border-radius: 8px; /* Bordes ligeramente redondeados para la imagen */
+    margin-bottom: 15px;
+    transition: transform 0.3s ease;
+}
+
+.producto-card:hover img {
+    transform: scale(1.03); /* Ligeramente más grande al pasar el ratón */
+}
+
+.producto-card h4 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    color: #2c3e50;
+}
+
+.producto-card p {
+    font-size: 0.95em;
+    color: #777;
+    margin-bottom: 15px;
+    height: 40px; /* Altura fija para la descripción */
+    overflow: hidden; /* Oculta texto si es demasiado largo */
+}
+
+.producto-card .price {
+    font-size: 1.8em;
+    color: #e74c3c; /* Un rojo para el precio */
+    font-weight: bold;
+    display: block;
+    margin-bottom: 20px;
+}
+
+/* Formulario de Contacto (Mejorado) */
+.formulario {
+    max-width: 700px;
+    background-color: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+    margin: 40px auto; /* Centrar y añadir espacio */
+}
+
+.formulario p {
+    font-size: 1.1em;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block; /* Cada etiqueta en su propia línea */
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #555;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+    width: calc(100% - 22px); /* Ancho completo menos padding y borde */
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 1em;
+    box-sizing: border-box; /* Incluye padding y borde en el ancho */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+textarea:focus {
+    border-color: #3498db; /* Borde azul al enfocar */
+    box-shadow: 0 0 8px rgba(52, 152, 219, 0.2);
+    outline: none; /* Eliminar el contorno por defecto */
+}
+
+textarea {
+    resize: vertical; /* Permitir redimensionar solo verticalmente */
+    min-height: 100px;
+}
+
+.formulario button {
+    width: 100%;
+    background-color: #2ecc71; /* Un verde vibrante para el botón de envío */
+    color: white;
+    border: none;
+    padding: 15px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.1em;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.formulario button:hover {
+    background-color: #27ae60; /* Tono más oscuro al pasar el ratón */
+    transform: translateY(-2px);
+}
+
+/* Mensajes de validación y éxito */
+.error-message {
+    color: #e74c3c; /* Rojo para errores */
+    font-size: 0.9em;
+    margin-top: 5px;
+    display: block; /* Para que aparezca en su propia línea */
+}
+
+.success-message {
+    color: #27ae60; /* Verde para éxito */
+    font-size: 1em;
+    margin-top: 15px;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* Pie de Página */
+footer {
+    background-color: #2c3e50; /* Mismo azul oscuro del header */
+    color: white;
+    text-align: center;
+    padding: 25px 0;
+    margin-top: 50px;
+    box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
+}
+
+footer p {
+    margin: 0;
+    font-size: 0.9em;
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+    header .container {
+        flex-direction: column;
+    }
+
+    header h1 {
+        margin-bottom: 10px;
+    }
+
+    nav a {
+        margin: 0 10px;
+        font-size: 0.9em;
+    }
+
+    .hero-text h2 {
+        font-size: 2.5em;
+    }
+
+    .hero-text p {
+        font-size: 1.2em;
+    }
+
+    .galeria {
+        grid-template-columns: 1fr; /* Una columna en pantallas pequeñas */
+    }
+
+    .producto-card {
+        max-width: 350px; /* Limitar el ancho de las tarjetas en móvil */
+        margin: 0 auto;
+    }
+
+    section {
+        padding: 40px 0;
+    }
+
+    .formulario {
+        margin: 20px auto;
+        padding: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.5em;
+    }
+
+    nav a {
+        display: block; /* Enlances de navegación en línea diferente */
+        margin: 5px 0;
+    }
+
+    .hero-text h2 {
+        font-size: 1.8em;
+    }
+
+    .hero-text p {
+        font-size: 1em;
+    }
+
+    .btn-primary, .btn-secondary {
+        padding: 10px 20px;
+        font-size: 0.9em;
+    }
+}
+
+/* Estilos para la página de detalle_producto.html */
+.detalle-producto {
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.detalle-producto h2 {
+    font-size: 2.8em;
+    color: #2c3e50;
+    margin-bottom: 40px;
+}
+
+.product-info {
+    display: flex;
+    flex-wrap: wrap; /* Permite que los elementos se envuelvan en pantallas pequeñas */
+    justify-content: center;
+    align-items: flex-start;
+    gap: 40px; /* Espacio entre la imagen y la descripción */
+    background-color: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.product-image {
+    max-width: 400px;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    border-radius: 8px;
+    border: 1px solid #eee;
+    padding: 10px;
+}
+
+.product-description {
+    flex: 1; /* Permite que la descripción ocupe el espacio restante */
+    text-align: left;
+    min-width: 300px; /* Asegura un ancho mínimo para la descripción */
+}
+
+.product-description p {
+    font-size: 1.1em;
+    color: #555;
+    line-height: 1.8;
+    margin-bottom: 25px;
+    text-align: left; /* Alinea el texto a la izquierda */
+}
+
+.detalle-producto .price {
+    font-size: 2.5em;
+    color: #e74c3c;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 30px;
+}
+
+.detalle-producto .btn-primary,
+.detalle-producto .btn-secondary {
+    width: auto; /* Restablecer ancho para estos botones */
+    margin-right: 15px; /* Espacio entre botones */
+}
+
+/* Responsividad para la página de detalle */
+@media (max-width: 768px) {
+    .product-info {
+        flex-direction: column; /* Apila la imagen y descripción en pantallas pequeñas */
+        align-items: center; /* Centra los elementos apilados */
+        gap: 20px;
+    }
+    .product-description {
+        text-align: center; /* Centra el texto de la descripción en móvil */
+    }
+    .product-description p {
+        text-align: center; /* Asegura que el párrafo también se centre */
+    }
+    .detalle-producto .btn-primary,
+    .detalle-producto .btn-secondary {
+        width: 80%; /* Hacer botones más anchos en móvil */
+        max-width: 300px;
+        margin: 10px auto; /* Centrar y espaciar verticalmente */
+        display: block;
+    }
+}
